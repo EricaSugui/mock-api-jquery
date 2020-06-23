@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- Adicionando JQuery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <!-- Adicionando JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Adicionando Javascript -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            let verFatura = document.querySelector(".verFatura");
+
+            if (document.querySelector("form")) {
+                verFatura.addEventListener("click", function (e) {
+
+                    console.log("console log no botão " +this.className);     
+                    abreBoleto(e);
+
+                })
+            }
+
+            function abreBoleto(e) {
+
+                var user = $("#user")
+                userInput = user.val();
+                var request_api = "http://5ef1659b1faf160016b4d545.mockapi.io/api/v1/users/";
+                console.log("console log no user " +userInput);
+                console.log(request_api);
+                //console.log("console log na função");
+
+                // $.getJSON("https://5ef1659b1faf160016b4d545.mockapi.io/api/v1/users/" + userInput, function (
+                //     dados) {
+                //         console.log("console log nos dados do mockAPI")
+                //     e.preventDefault();
+                //     console.log(dados);
+
+                // })
+
+                $.ajax({
+                    url: request_api+userInput,
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    dataType: 'json',
+                    //data: data,
+                    success: function(data) {
+                        console.log(data)
+                    }
+                });
+            }
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <form method="get">
+        <div class="form-group">
+
+            <label>User:</label>
+            <input name="user" type="text" id="user" value="" class="form-control" />
+            <input type="submit" name="submit" class="verFatura" value="Submit" />
+        </div>
+
+        
+
+    </form>
+
+</body>
+
+</html>

@@ -34,25 +34,24 @@
                 console.log(request_api);
                 //console.log("console log na função");
 
-                // $.getJSON("https://5ef1659b1faf160016b4d545.mockapi.io/api/v1/users/" + userInput, function (
-                //     dados) {
-                //         console.log("console log nos dados do mockAPI")
-                //     e.preventDefault();
-                //     console.log(dados);
+                $.getJSON("https://5ef1659b1faf160016b4d545.mockapi.io/api/v1/users/" + userInput, function (
+                    dados) {
+                        console.log("console log nos dados do mockAPI")
+                    e.preventDefault();
+                    console.log(dados);
+                })
 
-                // })
-
-                $.ajax({
-                    url: request_api+userInput,
-                    xhrFields: {
-                        withCredentials: true
-                    },
-                    dataType: 'json',
-                    //data: data,
-                    success: function(data) {
-                        console.log(data)
-                    }
-                });
+                // $.ajax({
+                //     url: request_api+userInput,
+                //     xhrFields: {
+                //         withCredentials: true
+                //     },
+                //     dataType: 'json',
+                //     //data: data,
+                //     success: function(data) {
+                //         console.log(data)
+                //     }
+                // });
             }
 
         });

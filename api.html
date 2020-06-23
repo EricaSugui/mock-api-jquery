@@ -34,7 +34,7 @@
                 console.log(request_api);
                 //console.log("console log na função");
 
-                $.getJSON("https://5ef1659b1faf160016b4d545.mockapi.io/api/v1/users/" + userInput, function (
+                $.getJSON(request_api + userInput, function (
                     dados) {
                         console.log("console log nos dados do mockAPI")
                     e.preventDefault();
